@@ -1,21 +1,26 @@
 import random
-count = 0
-# for num in (input("Ведите число от 1 до 100: ")):
-#     if 1 <= num <= 100:
-#         print("!")
-#     else:
-#         continue
+random_value = random.randrange(1, 100)
+score = 0
 
-num = int(input("Ведите число от 1 до 100: "))
-if 1 <= num <= 100:
-    True
-    while True:
-        print(num)
-        num += 1
+while True:
+    num = input("Введите число от 1 до 100:\n")
+    if num.isdigit():
 
+        if 1 > int(num) or int(num) > 100:
+            score += 1
+            print(f"Ошибка, повторите попытку!!!\nЧисло попыток: {score}\n")
 
+        elif int(num) > random_value:
+            score += 1
+            print(f"Число меньше.\nЧисло попыток: {score}\n")
 
+        elif int(num) < random_value:
+            score += 1
+            print(f"Число больше.\nЧисло попыток: {score}\n")
 
-
-# ran = random.randrange(1, 100)
-# print()
+        else:
+            print(f"\U0001f60e\U0001f60e\U0001f60eВы угадали\U0001f60e\U0001f60e\U0001f60e \nЧисло попыток:{score}")
+            break
+    else:
+        score += 1
+        print(f"Ошибка, повторите попытку!!!\nЧисло попыток: {score}\n")
